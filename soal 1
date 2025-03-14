@@ -1,0 +1,14 @@
+I = double(imread('saturn.png'));  % atau 'saturn.tif' kalau kamu rename
+
+kernel = [1 1 1; 1 1 1; 1 1 1]/9;
+J = conv2(I, kernel, 'same');
+K = I - J;
+
+figure, imagesc(I), colormap('gray'), colorbar('vert');
+title('Gambar Asli - Saturn');
+
+figure, imagesc(J), colormap('gray'), colorbar('vert');
+title('Gambar Hasil Smoothing');
+
+figure, imagesc(K), colormap('gray'), colorbar('vert');
+title('Gambar High-pass (Detail/Tepi)');
